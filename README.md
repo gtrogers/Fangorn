@@ -1,7 +1,9 @@
-# Ents
+# Fangorn
 
 A _simple_, one-file entity component system for Typescript and
-Javascript in about 100 lines of code.
+Javascript in about 100 lines of code (it's where your 'ents live)
+
+The goal of Fangorn (other than satisfying my curiosity) is to be fast enough with remaining simple, easy to use and fun to hack on.
 
 ## Installation
 
@@ -14,6 +16,7 @@ Coming soon
 ## Example
 
 ```Typescript
+import { Ents } from "fangorn.mjs";
 const ents = new Ents();
 const PARTICLES = 10000;
 const WIDTH = 480;
@@ -92,6 +95,15 @@ window.setInterval(() => {
 ```
 
 ## Tests
-Because testing Typescript is still a nightmare the tests are
+Because testing Typescript is still a nightmare (especially with JS modules) the tests are
 run against the compiled Javascript in the `./dist` folder. Make
 sure you run `npx tsc` or `npm run build` before running `npm test`.
+
+## TODO List
+
+- [x] Entity recycling: re-use ids from deleted entities
+- [ ] Interactive demo
+- [ ] NPM package and/or CDN delivery
+- [ ] Query caching: no need to re-compute the list of entity ids for a set of components if nothing has changed
+- [ ] More tests: e.g. test recycled entities don't have their old components (they don't)
+- [ ] Perf tests and remove any obvious bottlenecks

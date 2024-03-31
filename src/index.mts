@@ -1,11 +1,12 @@
 import {
+    anotherDemo,
   cleanUpSystem,
   newDemo,
   physicsSystem,
   redIsHeavySystem,
   renderSystem,
 } from "./demo.mjs";
-import { Ents } from "./ents.mjs";
+import { Ents } from "./fangorn.mjs";
 
 declare global {
     interface Window {
@@ -13,16 +14,18 @@ declare global {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const ecs = new Ents();
-  newDemo(ecs);
+anotherDemo();
 
-  window.ecs = ecs;
+// document.addEventListener("DOMContentLoaded", () => {
+//   const ecs = new Ents();
+//   newDemo(ecs);
 
-  window.setInterval(() => {
-    physicsSystem(ecs);
-    cleanUpSystem(ecs);
-    redIsHeavySystem(ecs);
-    renderSystem(ecs);
-  }, 16);
-});
+//   window.ecs = ecs;
+
+//   window.setInterval(() => {
+//     physicsSystem(ecs);
+//     cleanUpSystem(ecs);
+//     redIsHeavySystem(ecs);
+//     renderSystem(ecs);
+//   }, 16);
+// });

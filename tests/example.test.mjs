@@ -1,4 +1,4 @@
-import { Ents } from "../dist/ents.mjs";
+import { Ents } from "../dist/fangorn.mjs";
 
 describe("Ents ECS", () => {
   test("Example", () => {
