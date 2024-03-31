@@ -21,7 +21,7 @@ class Ents {
 
   makeEntity(): Entity {
     const eidToRecycle = this._destroyedEntities.findIndex((e) => e);
-    if (eidToRecycle > 0) {
+    if (eidToRecycle >= 0) {
       this._destroyedEntities[eidToRecycle] = false;
       this._components.forEach((cList) => {
         delete cList[eidToRecycle];

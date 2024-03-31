@@ -105,5 +105,5 @@ sure you run `npx tsc` or `npm run build` before running `npm test`.
 - [ ] Interactive demo
 - [ ] NPM package and/or CDN delivery
 - [ ] Query caching: no need to re-compute the list of entity ids for a set of components if nothing has changed
-- [ ] More tests: e.g. test recycled entities don't have their old components (they don't)
+- [x] More tests: e.g. test recycled entities don't have their old components (they don't)
 - [ ] Perf tests and remove any obvious bottlenecks
