@@ -75,7 +75,8 @@ class Ents {
     // TODO - query caching
     for (let i = 0; i < this._entityCursor; i++) {
       if (
-        tags.every((tag) => (this._components.get(tag) as TaggedArray<any>)[i])
+        // FIXME - this feels a bit wierd
+        tags.every((tag) => (this._components.get(tag) as TaggedArray<any>)[i] !== undefined)
       ) {
         if (this._destroyedEntities[i]) {
           continue;
