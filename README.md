@@ -5,6 +5,16 @@ Javascript in about 100 lines of code (it's where your 'ents live)
 
 The goal of Fangorn (other than satisfying my curiosity) is to be fast enough with remaining simple, easy to use and fun to hack on.
 
+## What's an entity component system?
+
+An entity component system, or ECS, is a way of decoupling behaviour, data and actors (or entities) in a game or other fairly
+complex application that needs to iterate over a lot of moving parts. There are several benefits to using this pattern in the
+right situation:
+
+- Easily add or remove behaviour from an actor or entity
+- Compose new and interesting behaviours and discover emergent gameplay
+- Maintain reasonable performance and easily identify bottlenecks in your code
+
 ## Installation
 
 ### Copy the file
@@ -93,6 +103,18 @@ window.setInterval(() => {
 }, 16);
 });
 ```
+
+## How does it work?
+Actors or entities are represented as ids, their properties (the components) are represented as collections of the same
+data type that are stored together and the entity id is used to keep track of which entity 'owns' a property. Behaviour
+is modelled as a system that can query for all entities with a set of components and perform updates on them.
+
+For example, in the demo below we create 10,000 particles - each one is an entity. Each particle has a position, velocity
+and 'heavy' component. These componenents don't live on the entity (as they would in a more traditional object oriented model)
+but instead are bound using the entity id.
+
+Our systems query for all entities with position and velocity and use the velocity to update the position. A seperate system
+queries for all heavy components and applies gravity.
 
 ## Tests
 Because testing Typescript is still a nightmare (especially with JS modules) the tests are
